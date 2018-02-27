@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Appuntes</string>
+
+    <string name="txt_button_1">Text for buttom 1</string>
+    <string name="txt_button_2">Text for buttom 2</string>
+
+    <string name="txt_textview_1">Text for textview 1</string>
+    <string name="txt_textview_2">Text for textview 2</string>
+    <string name="txt_textview_3">Text for textview 3</string>
+</resources>
+<!-- Este archivo sirve para poder dar soporte al idioma ingles
+por si en algun momento la app cruza las fronteras -->

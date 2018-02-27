@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Appuntes</string>
+
+    <string name="txt_button_1">Texto boton 1</string>
+    <string name="txt_button_2">Texto boton 2</string>
+
+    <string name="txt_textview_1">Texto textview 1</string>
+    <string name="txt_textview_2">Texto textview 2</string>
+    <string name="txt_textview_3">Texto textview 3</string>
+</resources>
