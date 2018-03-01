@@ -7,4 +7,5 @@
     <string name="txt_textview_1">Texto textview 1</string>
     <string name="txt_textview_2">Texto textview 2</string>
     <string name="txt_textview_3">Texto textview 3</string>
+    <string name="title_activity_main3">Main3Activity</string>
 </resources>

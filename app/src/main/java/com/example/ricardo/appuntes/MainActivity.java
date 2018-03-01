@@ -1,5 +1,6 @@
 package com.example.ricardo.appuntes;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Rating;
 import android.os.Build;
@@ -7,11 +8,13 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quien nos ayuda a manipular la vista*/
 
@@ -29,7 +32,20 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         /*******************************************************************************************/
         /************************************METODO ACTUAL******************************************/
         /*******************************************************************************************/
+
         setContentView(R.layout.activity_main);
+        Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG);
+        Log.e("test","Oncreate--Activity_1");
+
+//------Ejemplo de uso de activitys e Intent
+        button_1 = (Button)findViewById(R.id.btn_next_activity);
+        button_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                startActivity(intent);
+            }
+        });
 
 //--------Ejemplo de ListView
         //Metodo Personalizado
@@ -111,6 +127,48 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
 //        /*Anado el ViewGroup al contenedor*/
 //        setContentView(linearLayout);/*Java infla la vista, es decir, se crea la vista */
         test();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(getApplicationContext(), "onStart", Toast.LENGTH_LONG);
+        Log.e("test","onStart-Activity_1");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(getApplicationContext(), "onResume", Toast.LENGTH_LONG);
+        Log.e("test","onResume-Activity_1");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(getApplicationContext(), "onPause", Toast.LENGTH_LONG);
+        Log.e("test","onPause-Activity_1");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(getApplicationContext(), "onStop", Toast.LENGTH_LONG);
+        Log.e("test","onStop-Activity_1");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(getApplicationContext(), "onDestroy", Toast.LENGTH_LONG);
+        Log.e("test","onDestroy-Activity_1");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(getApplicationContext(), "onRestart", Toast.LENGTH_LONG);
+        Log.e("test","onRestart-Activity_1");
     }
 
     /**

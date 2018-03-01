@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.example.ricardo.appuntes.MainActivity">
+
     <!-- Comentarios de uso de TableLayout
         **Enumerar las columnas comenzando desde el 0
         - android:stretchColumns="0,1,2" => Si hay tres componentes, todos tendran el mismo espacio
@@ -295,7 +297,7 @@
             android:layout_height="wrap_content"
             android:text="Button" />
     -->
-        <!-- Apuntes
+    <!-- Apuntes
             - android:layout_span="2" => Indico que el elemento utilice 2 columnas
         -->
     <!-- Ejemplo de TableLayout
@@ -306,7 +308,7 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
     -->
-        <!-- Apuntes
+    <!-- Apuntes
         - android:layout_column="3" => Indico la columna en donde va el elemento
     -->
     <!-- Ejemplo de TableLayout
@@ -420,4 +422,19 @@
         android:layout_columnSpan="2"
         android:layout_gravity="fill"/>
     -->
-</GridLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Activity_1" />
+
+    <Button
+        android:id="@+id/btn_next_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Ir a activity_2" />
+
+</LinearLayout>

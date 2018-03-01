@@ -7,12 +7,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="my_buttom">
         <item name="android:textColor">@color/buttom_text</item>
         <item name="android:background">@color/buttom</item>
     </style>
+
     <style name="my_buttom.textview">
         <item name="android:textColor">@color/text_view</item>
         <item name="android:textSize">36px</item>
     </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
