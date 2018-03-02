@@ -42,8 +42,18 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         button_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                startActivity(intent);
+                //envio parametros  al siguiente activity
+//                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+//                intent.putExtra("var_int",23);
+//                intent.putExtra("var_string","Mensaje de activity_1");
+//                intent.putExtra("var_bool",true);
+//                startActivity(intent);
+
+                Intent  intent = new Intent();
+                intent.setAction(intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, "Un mensaje desde mi app Appuntes");
+                intent.setType("text/plain");
+                startActivity(Intent.createChooser(intent, "Envíar el mensaje a"));
             }
         });
 
