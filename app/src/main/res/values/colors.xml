@@ -8,4 +8,6 @@
     <color name="buttom_text">#e1f5fe</color>
 
     <color name="text_view">#FF5722</color>
+
+    <color name="splashscreen_backgorund_color">#fff</color>
 </resources>

@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.Rating;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG);
         Log.e("test","Oncreate--Activity_1");
-
 //------Ejemplo de uso de activitys e Intent
         button_1 = (Button)findViewById(R.id.btn_next_activity);
         button_1.setOnClickListener(new View.OnClickListener() {
@@ -191,5 +192,33 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         Log.i("test","Informar");
         Log.d("test","Depuracion");
         Log.v("test","Detalle");
+    }
+
+    /**
+     * Función que de la mano con onRestoreInstanceState, nos ayudan a rescatar los datos
+     * al momento de cambiar la orientacaión del dispositivo.
+     *
+     * Envía información a onRestoreInstanceState
+     * @param outState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("var_1", "Una variable");
+    }
+
+    /**
+     * Función que de la mano con onSaveInstanceState, nos ayudan a rescatar los datos
+     * al momento de cambiar la orientacaión del dispositivo. Esta funcion se ejecuta despues de
+     * onStart
+     *
+     * Recibe la información de onSaveInstanceState
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.e("Orientation",savedInstanceState.getString("var_1","-"));
+
     }
 }
