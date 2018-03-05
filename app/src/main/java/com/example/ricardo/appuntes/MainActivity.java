@@ -1,10 +1,13 @@
 package com.example.ricardo.appuntes;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.Rating;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +41,15 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG);
         Log.e("test","Oncreate--Activity_1");
+
+//------Ejemplo de solicitud de permiso
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)==0){
+            Log.e("Pemission","Hay permiso de usar la cámara");
+        }
+        else{
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+            Log.e("Pemission","No hay permiso de usar la cámara");
+        }
 //------Ejemplo de uso de activitys e Intent
         button_1 = (Button)findViewById(R.id.btn_next_activity);
         button_1.setOnClickListener(new View.OnClickListener() {
@@ -220,5 +232,20 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         super.onRestoreInstanceState(savedInstanceState);
         Log.e("Orientation",savedInstanceState.getString("var_1","-"));
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                if (grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                    Log.e("Pemission","Hay permiso de usar la cámara");
+                }
+                else{
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+                    Log.e("Pemission","No hay permiso de usar la cámara");
+                }
+        }
     }
 }
