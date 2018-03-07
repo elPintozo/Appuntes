@@ -39,17 +39,18 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         /*******************************************************************************************/
 
         setContentView(R.layout.activity_main);
-        Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
 
+
 //------Ejemplo de solicitud de permiso
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)==0){
-            Log.e("Pemission","Hay permiso de usar la cámara");
-        }
-        else{
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
-            Log.e("Pemission","No hay permiso de usar la cámara");
-        }
+//        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)==0){
+//            Log.e("Pemission","Hay permiso de usar la cámara");
+//        }
+//        else{
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+//            Log.e("Pemission","No hay permiso de usar la cámara");
+//        }
 //------Ejemplo de uso de activitys e Intent
         button_1 = (Button)findViewById(R.id.btn_next_activity);
         button_1.setOnClickListener(new View.OnClickListener() {
@@ -155,42 +156,42 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(getApplicationContext(), "onStart", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "onStart", Toast.LENGTH_LONG).show();
         Log.e("test","onStart-Activity_1");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(getApplicationContext(), "onResume", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "onResume", Toast.LENGTH_LONG).show();
         Log.e("test","onResume-Activity_1");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(getApplicationContext(), "onPause", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "onPause", Toast.LENGTH_LONG).show();
         Log.e("test","onPause-Activity_1");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(getApplicationContext(), "onStop", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "onStop", Toast.LENGTH_LONG).show();
         Log.e("test","onStop-Activity_1");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Toast.makeText(getApplicationContext(), "onDestroy", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "onDestroy", Toast.LENGTH_LONG).show();
         Log.e("test","onDestroy-Activity_1");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Toast.makeText(getApplicationContext(), "onRestart", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "onRestart", Toast.LENGTH_LONG).show();
         Log.e("test","onRestart-Activity_1");
     }
 
@@ -234,6 +235,12 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
 
     }
 
+    /**
+     * Función que me permite solicitar los permisos al usuario en caso de no contar con ellos
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -247,5 +254,10 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
                     Log.e("Pemission","No hay permiso de usar la cámara");
                 }
         }
+    }
+    public void mensaje(View view){
+        Button btn = (Button)view;
+        btn.setTextSize(25);
+        Toast.makeText(getApplicationContext(), "Has presionado el boton", Toast.LENGTH_LONG).show();
     }
 }
