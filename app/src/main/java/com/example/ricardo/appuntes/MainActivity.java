@@ -16,8 +16,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     private Button button_1;
     private Button button_2;
 
+    private CheckBox checkBox;
+    private RadioButton radio_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -42,6 +47,31 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
 
+//------Ejemplo de uso de CheckBox y RadioButtun
+
+        radio_btn = (RadioButton) findViewById(R.id.radio_btn);
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
+
+        radio_btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    Toast.makeText(getApplicationContext(), "RadioButton seleccionado", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "RadioButton no seleccionado", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    Toast.makeText(getApplicationContext(), "CheckBox seleccionado", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "CheckBox no seleccionado", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
 //------Ejemplo de solicitud de permiso
 //        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)==0){
@@ -52,24 +82,24 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
 //            Log.e("Pemission","No hay permiso de usar la cámara");
 //        }
 //------Ejemplo de uso de activitys e Intent
-        button_1 = (Button)findViewById(R.id.btn_next_activity);
-        button_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //envio parametros  al siguiente activity
+//        button_1 = (Button)findViewById(R.id.btn_next_activity);
+//        button_1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //envio parametros  al siguiente activity
 //                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
 //                intent.putExtra("var_int",23);
 //                intent.putExtra("var_string","Mensaje de activity_1");
 //                intent.putExtra("var_bool",true);
 //                startActivity(intent);
-
-                Intent  intent = new Intent();
-                intent.setAction(intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, "Un mensaje desde mi app Appuntes");
-                intent.setType("text/plain");
-                startActivity(Intent.createChooser(intent, "Envíar el mensaje a"));
-            }
-        });
+//
+//                Intent  intent = new Intent();
+//                intent.setAction(intent.ACTION_SEND);
+//                intent.putExtra(Intent.EXTRA_TEXT, "Un mensaje desde mi app Appuntes");
+//                intent.setType("text/plain");
+//                startActivity(Intent.createChooser(intent, "Envíar el mensaje a"));
+//            }
+//        });
 
 //--------Ejemplo de ListView
         //Metodo Personalizado

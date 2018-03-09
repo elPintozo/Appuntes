@@ -422,7 +422,7 @@
         android:layout_columnSpan="2"
         android:layout_gravity="fill"/>
     -->
-
+    <!-- ejemplo para el uso de los botones
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -451,5 +451,18 @@
         android:layout_weight="1"
         android:onClick="mensaje"
         android:text="Mostrar mensaje"/>
+    -->
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <RadioButton
+        android:id="@+id/radio_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        android:focusableInTouchMode="true"/>
 </LinearLayout>

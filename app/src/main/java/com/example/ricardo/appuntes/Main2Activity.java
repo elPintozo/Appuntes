@@ -31,8 +31,6 @@ public class Main2Activity extends AppCompatActivity  implements View.OnClickLis
             Log.v("bundle","var_int: "+var_int);
             Log.v("bundle","var_bool: "+var_bool);
         }
-
-
     }
     @Override
     protected void onDestroy() {
