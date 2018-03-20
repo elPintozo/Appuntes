@@ -21,6 +21,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
 
     private CheckBox checkBox;
     private RadioButton radio_btn;
+
+    private Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -47,31 +50,41 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
 
+//Ejemplo de uso de spinner
+        //metodo personalizado
+//        AdapterEstudiante adapter = new AdapterEstudiante(this, R.layout.item_adapter_estudiante, Estudiante.listaEstudiantes());
+//        //metodo tradicional
+//        //ArrayAdapter<Estudiante> adapter = new ArrayAdapter<Estudiante>(this,R.layout.item_adapter_estudiante, R.id.txt_nombre,Estudiante.listaEstudiantes());
+//        spinner = (Spinner)findViewById(R.id.my_spinner);
+//        //cargo una ventana desplegable predeterminada para el adaprter personalizado
+//        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        //la liena de arriba se puede omitir si se maneja dentro de la clase del adaptador mediante la funcion getDropDownView
+//        spinner.setAdapter(adapter);
+
 //------Ejemplo de uso de CheckBox y RadioButtun
-
-        radio_btn = (RadioButton) findViewById(R.id.radio_btn);
-        checkBox = (CheckBox)findViewById(R.id.checkBox);
-
-        radio_btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    Toast.makeText(getApplicationContext(), "RadioButton seleccionado", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "RadioButton no seleccionado", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    Toast.makeText(getApplicationContext(), "CheckBox seleccionado", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "CheckBox no seleccionado", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+//        radio_btn = (RadioButton) findViewById(R.id.radio_btn);
+//        checkBox = (CheckBox)findViewById(R.id.checkBox);
+//
+//        radio_btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(b){
+//                    Toast.makeText(getApplicationContext(), "RadioButton seleccionado", Toast.LENGTH_LONG).show();
+//                }else{
+//                    Toast.makeText(getApplicationContext(), "RadioButton no seleccionado", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(b){
+//                    Toast.makeText(getApplicationContext(), "CheckBox seleccionado", Toast.LENGTH_LONG).show();
+//                }else{
+//                    Toast.makeText(getApplicationContext(), "CheckBox no seleccionado", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
 
 //------Ejemplo de solicitud de permiso
 //        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)==0){

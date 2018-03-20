@@ -3,6 +3,7 @@ package com.example.ricardo.appuntes;
 import android.app.Activity;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -42,6 +43,43 @@ public class AdapterEstudiante extends ArrayAdapter{
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
+        //Aca se lleva a cabo el manejo de la vista
+
+        ViewHolder viewHolder = new ViewHolder();
+
+        if (view== null) {//Carga por primera vez, por ende debe ir por la vista
+            if (context != null) {
+                //Debemos primero inflar la vista
+                view = context.getLayoutInflater().inflate(resource, null);
+
+                //TextView textView = (TextView) view.findViewById(R.id.txt_nombre);//sin viewHolder
+                viewHolder.txtItem = (TextView) view.findViewById(R.id.txt_nombre);
+                view.setTag(viewHolder);//Guardo el objeto
+            }
+        }else {//Ya se obtuvo antes la vista, por ende ahora no se buscan nuevcamente sino que se llama donde la guardamos
+            viewHolder = (ViewHolder)view.getTag();
+        }
+
+        Estudiante estudiante = estudiantes.get(position);
+        viewHolder.txtItem.setText(estudiante.getNombre());
+        if (!estudiante.isAprobado()) {
+            viewHolder.txtItem.setBackgroundColor(Color.RED);
+        } else {
+            viewHolder.txtItem.setBackgroundColor(Color.GREEN);
+        }
+
+        return view;
+    }
+
+    /***
+     * Esta función es llamada para cuando nuestro adapter es usado dentro de un spinners
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
+    @Override
+    public View getDropDownView(int position, @Nullable View view, @NonNull ViewGroup parent) {
         //Aca se lleva a cabo el manejo de la vista
 
         ViewHolder viewHolder = new ViewHolder();

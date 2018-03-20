@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     tools:context="com.example.ricardo.appuntes.MainActivity">
 
     <!-- Comentarios de uso de TableLayout
@@ -452,7 +452,7 @@
         android:onClick="mensaje"
         android:text="Mostrar mensaje"/>
     -->
-
+    <!-- ejemplo de uso de checkbox y radiobutton
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
@@ -465,4 +465,12 @@
         android:layout_height="wrap_content"
         android:text="RadioButton"
         android:focusableInTouchMode="true"/>
+    -->
+<!-- Ejemplo del uso de un spinner
+    <Spinner
+        android:id="@+id/my_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"/>
+-->
 </LinearLayout>
