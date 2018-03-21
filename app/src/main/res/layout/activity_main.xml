@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.example.ricardo.appuntes.MainActivity">
 
     <!-- Comentarios de uso de TableLayout
@@ -466,11 +466,53 @@
         android:text="RadioButton"
         android:focusableInTouchMode="true"/>
     -->
-<!-- Ejemplo del uso de un spinner
+    <!-- Ejemplo del uso de un spinner
     <Spinner
         android:id="@+id/my_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:spinnerMode="dropdown"/>
 -->
+    <!-- Ejemplo de progressbar circular
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:indeterminate="true"
+        android:indeterminateOnly="true"
+        android:indeterminateDuration="20000"
+        android:indeterminateBehavior="cycle"
+        />
+        -->
+<!-- ejemplo de progressbar
+    <Button
+        android:id="@+id/btn_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Button" />
+
+    <ProgressBar
+        android:id="@+id/my_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:max="100"/>
+        -->
+    <SeekBar
+        android:id="@+id/seekBar_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="25"/>
+
+    <SeekBar
+        android:id="@+id/seekBar_2"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="15"
+        android:progress="3" />
 </LinearLayout>

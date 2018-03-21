@@ -20,7 +20,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     private RadioButton radio_btn;
 
     private Spinner spinner;
+
+    private ProgressBar progressBar;
+    private int progreso;
+
+    private SeekBar seekBar_1;
+    private SeekBar seekBar_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -49,6 +58,83 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
+//Ejemplo de SeekBar
+        seekBar_1 = (SeekBar)findViewById(R.id.seekBar_1);
+        seekBar_2 = (SeekBar)findViewById(R.id.seekBar_2);
+
+        seekBar_1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                /**
+                 * Reaciona cuando el porcentaje de la barra cambia
+                 */
+                if(b){
+                    Log.e("seekBar_1", "Progreso: " + i);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                /**
+                 * Ha iniciado la selección de una cantidad
+                 */
+                Log.e("seekBar_1","Comenzo");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                /**
+                 * Ha finalizado la seleccion de una cantidad
+                 */
+                Log.e("seekBar_1","Finalizo");
+            }
+        });
+        seekBar_2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                /**
+                 * Reaciona cuando el porcentaje de la barra cambia
+                 */
+                if(b){
+                    Log.e("seekBar_2", "Progreso: " + i);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                /**
+                 * Ha iniciado la selección de una cantidad
+                 */
+                Log.e("seekBar_2","Comenzo");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                /**
+                 * Ha finalizado la seleccion de una cantidad
+                 */
+                Log.e("seekBar_2","Finalizo");
+            }
+        });
+//Ejemplo de progressbar
+//        progressBar = (ProgressBar)findViewById(R.id.my_progressBar);
+//        button_1 = (Button)findViewById(R.id.btn_progressbar);
+//        button_1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.e("progressBar","Progreso: "+progreso+ " | progressbar: "+progressBar.getProgress());
+//                progreso = progressBar.getProgress();
+//                if (progreso<100){
+//                    progreso = progreso +10;
+//                    progressBar.setProgress(progreso);
+//                    button_1.setText(progreso+" %");
+//                }else {
+//                    progreso=0;
+//                    progressBar.setProgress(0);
+//                    button_1.setText("Comenzar");
+//                }
+//            }
+//        });
 
 //Ejemplo de uso de spinner
         //metodo personalizado
