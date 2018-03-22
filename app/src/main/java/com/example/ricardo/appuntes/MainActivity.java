@@ -27,6 +27,7 @@ import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     private RatingBar ratingBar_1;
     private RatingBar ratingBar_2;
 
+    private Switch aSwitch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -67,28 +69,37 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
-
+//Ejemplo de uso de Switch
+        aSwitch = (Switch)findViewById(R.id.switch1);
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    Log.e("aSwitch","Se ha cambiado de estado On");
+                }else {
+                    Log.e("aSwitch","Se ha cambiado de estado Off");
+                }
+            }
+        });
 //Ejemplo de RatingBar
-        ratingBar_1 = (RatingBar)findViewById(R.id.ratingBar_1);
-        ratingBar_2 = (RatingBar)findViewById(R.id.ratingBar_2);
-
-        textView_1 = (TextView)findViewById(R.id.txt_ratio_1);
-        textView_2 = (TextView)findViewById(R.id.txt_ratio_2);
-
-        ratingBar_1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                textView_1.setText("Puntuación: "+v);
-            }
-        });
-        ratingBar_2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                textView_2.setText("Puntuación: "+v);
-            }
-        });
-
-
+//        ratingBar_1 = (RatingBar)findViewById(R.id.ratingBar_1);
+//        ratingBar_2 = (RatingBar)findViewById(R.id.ratingBar_2);
+//
+//        textView_1 = (TextView)findViewById(R.id.txt_ratio_1);
+//        textView_2 = (TextView)findViewById(R.id.txt_ratio_2);
+//
+//        ratingBar_1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//            @Override
+//            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+//                textView_1.setText("Puntuación: "+v);
+//            }
+//        });
+//        ratingBar_2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//            @Override
+//            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+//                textView_2.setText("Puntuación: "+v);
+//            }
+//        });
 //Ejemplo de QuickContactBadge
 //        quickContactBadge_1 = (QuickContactBadge)findViewById(R.id.quickContactBadge_email);
 //        quickContactBadge_2 = (QuickContactBadge)findViewById(R.id.quickContactBadge_phone);
