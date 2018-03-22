@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.QuickContactBadge;
 import android.widget.RadioButton;
+import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     private QuickContactBadge quickContactBadge_1;
     private QuickContactBadge quickContactBadge_2;
 
+    private RatingBar ratingBar_1;
+    private RatingBar ratingBar_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -63,6 +67,26 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
+
+//Ejemplo de RatingBar
+        ratingBar_1 = (RatingBar)findViewById(R.id.ratingBar_1);
+        ratingBar_2 = (RatingBar)findViewById(R.id.ratingBar_2);
+
+        textView_1 = (TextView)findViewById(R.id.txt_ratio_1);
+        textView_2 = (TextView)findViewById(R.id.txt_ratio_2);
+
+        ratingBar_1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                textView_1.setText("Puntuación: "+v);
+            }
+        });
+        ratingBar_2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                textView_2.setText("Puntuación: "+v);
+            }
+        });
 
 
 //Ejemplo de QuickContactBadge
