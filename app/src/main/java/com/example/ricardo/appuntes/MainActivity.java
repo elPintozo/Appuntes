@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.Rating;
 import android.os.Build;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -21,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.QuickContactBadge;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     private SeekBar seekBar_1;
     private SeekBar seekBar_2;
 
+    private QuickContactBadge quickContactBadge_1;
+    private QuickContactBadge quickContactBadge_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -58,64 +63,77 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
+
+
+//Ejemplo de QuickContactBadge
+//        quickContactBadge_1 = (QuickContactBadge)findViewById(R.id.quickContactBadge_email);
+//        quickContactBadge_2 = (QuickContactBadge)findViewById(R.id.quickContactBadge_phone);
+//
+//        quickContactBadge_1.assignContactFromEmail("correo@correo.cl",true);
+//        quickContactBadge_2.assignContactFromPhone("+56981275085", true);
+//
+//        Bundle bundle = new Bundle();
+//        bundle.putString(ContactsContract.Intents.Insert.NAME, "Ricardo");
+//        quickContactBadge_2.assignContactFromPhone("+56981275085", true, bundle);
+
 //Ejemplo de SeekBar
-        seekBar_1 = (SeekBar)findViewById(R.id.seekBar_1);
-        seekBar_2 = (SeekBar)findViewById(R.id.seekBar_2);
-
-        seekBar_1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                /**
-                 * Reaciona cuando el porcentaje de la barra cambia
-                 */
-                if(b){
-                    Log.e("seekBar_1", "Progreso: " + i);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                /**
-                 * Ha iniciado la selección de una cantidad
-                 */
-                Log.e("seekBar_1","Comenzo");
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                /**
-                 * Ha finalizado la seleccion de una cantidad
-                 */
-                Log.e("seekBar_1","Finalizo");
-            }
-        });
-        seekBar_2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                /**
-                 * Reaciona cuando el porcentaje de la barra cambia
-                 */
-                if(b){
-                    Log.e("seekBar_2", "Progreso: " + i);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                /**
-                 * Ha iniciado la selección de una cantidad
-                 */
-                Log.e("seekBar_2","Comenzo");
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                /**
-                 * Ha finalizado la seleccion de una cantidad
-                 */
-                Log.e("seekBar_2","Finalizo");
-            }
-        });
+//        seekBar_1 = (SeekBar)findViewById(R.id.seekBar_1);
+//        seekBar_2 = (SeekBar)findViewById(R.id.seekBar_2);
+//
+//        seekBar_1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+//                /**
+//                 * Reaciona cuando el porcentaje de la barra cambia
+//                 */
+//                if(b){
+//                    Log.e("seekBar_1", "Progreso: " + i);
+//                }
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//                /**
+//                 * Ha iniciado la selección de una cantidad
+//                 */
+//                Log.e("seekBar_1","Comenzo");
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                /**
+//                 * Ha finalizado la seleccion de una cantidad
+//                 */
+//                Log.e("seekBar_1","Finalizo");
+//            }
+//        });
+//        seekBar_2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+//                /**
+//                 * Reaciona cuando el porcentaje de la barra cambia
+//                 */
+//                if(b){
+//                    Log.e("seekBar_2", "Progreso: " + i);
+//                }
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//                /**
+//                 * Ha iniciado la selección de una cantidad
+//                 */
+//                Log.e("seekBar_2","Comenzo");
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                /**
+//                 * Ha finalizado la seleccion de una cantidad
+//                 */
+//                Log.e("seekBar_2","Finalizo");
+//            }
+//        });
 //Ejemplo de progressbar
 //        progressBar = (ProgressBar)findViewById(R.id.my_progressBar);
 //        button_1 = (Button)findViewById(R.id.btn_progressbar);

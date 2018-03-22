@@ -501,6 +501,7 @@
         android:layout_weight="1"
         android:max="100"/>
         -->
+    <!-- Ejemplo de SeekBar
     <SeekBar
         android:id="@+id/seekBar_1"
         android:layout_width="match_parent"
@@ -515,4 +516,19 @@
         android:layout_height="wrap_content"
         android:max="15"
         android:progress="3" />
+    -->
+    <!-- Ejemplo de QuickContactBadge
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/email" />
+
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/phone"
+        />
+    -->
 </LinearLayout>
