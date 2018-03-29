@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.QuickContactBadge;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
     private RatingBar ratingBar_2;
 
     private Switch aSwitch;
+
+    private RadioGroup radioGroup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -69,18 +73,35 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
+
+//Ejemplo de RadioGroup
+//        radioGroup = (RadioGroup)findViewById(R.id.my_radio_group);
+//        textView_1 = (TextView)findViewById(R.id.txt_radio);
+//        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//
+//                RadioButton radio_seleccionado = (RadioButton)findViewById(i);
+//                textView_1.setText(radio_seleccionado.getText());
+//            }
+//        });
+//
+//        RadioButton radioButton_seleccionado = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
+//        if(radioButton_seleccionado!=null) {
+//            Log.e("RadioButton", "Se seleccionó: " + radioButton_seleccionado.getText());
+//        }
 //Ejemplo de uso de Switch
-        aSwitch = (Switch)findViewById(R.id.switch1);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
-                    Log.e("aSwitch","Se ha cambiado de estado On");
-                }else {
-                    Log.e("aSwitch","Se ha cambiado de estado Off");
-                }
-            }
-        });
+//        aSwitch = (Switch)findViewById(R.id.switch1);
+//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b){
+//                    Log.e("aSwitch","Se ha cambiado de estado On");
+//                }else {
+//                    Log.e("aSwitch","Se ha cambiado de estado Off");
+//                }
+//            }
+//        });
 //Ejemplo de RatingBar
 //        ratingBar_1 = (RatingBar)findViewById(R.id.ratingBar_1);
 //        ratingBar_2 = (RatingBar)findViewById(R.id.ratingBar_2);
