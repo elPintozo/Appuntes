@@ -561,17 +561,17 @@
         android:rating="1"
         android:stepSize="1" />
     -->
-<!-- Ejemplo de Switch
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wi - fi"
-        android:textOff="0"
-        android:textOn="1"
-        />
-        -->
-<!-- Ejemplo de RadioGroup
+    <!-- Ejemplo de Switch
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wi - fi"
+            android:textOff="0"
+            android:textOn="1"
+            />
+            -->
+    <!-- Ejemplo de RadioGroup
     <TextView
         android:id="@+id/txt_radio"
         android:layout_width="match_parent"
@@ -596,4 +596,9 @@
         android:text="Masculino" />
     </RadioGroup>
     -->
+
+    <ListView
+        android:id="@+id/my_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

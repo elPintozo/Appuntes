@@ -37,7 +37,7 @@ public class AdapterEstudiante extends ArrayAdapter{
     }
 
     @Override
-    public Object getItem(int position) {
+    public Estudiante getItem(int position) {
         return estudiantes.get(position);
     }
 

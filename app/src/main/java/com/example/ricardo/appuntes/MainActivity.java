@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -31,6 +32,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quien nos ayuda a manipular la vista*/
 
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
 
     private RadioGroup radioGroup;
 
+    private ListView listView;
+    private ArrayList<Estudiante> estudiantes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {/*Metodo que se ejecuta al iniciar la aplicacion*/
         super.onCreate(savedInstanceState);
@@ -73,6 +78,27 @@ public class MainActivity extends AppCompatActivity {/*AppCompatActivity es quie
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(), "Oncreate", Toast.LENGTH_LONG).show();
         Log.e("test","Oncreate--Activity_1");
+//Ejemplo de ListView
+        listView = (ListView)findViewById(R.id.my_listview);
+        estudiantes = Estudiante.listaEstudiantes();
+        final AdapterEstudiante adapterEstudiante = new AdapterEstudiante(this, R.layout.item_adapter_estudiante, estudiantes);
+        listView.setAdapter(adapterEstudiante);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Estudiante estudiante = adapterEstudiante.getItem(i);
+                Log.e("ListView","Seleccion de ListView: "+ estudiante.getNombre());
+            }
+        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Estudiante estudiante = adapterEstudiante.getItem(i);
+                Log.e("ListView","Presiono bastante tiempola opcion del ListView: "+ estudiante.getNombre());
+                return false;
+            }
+        });
 
 //Ejemplo de RadioGroup
 //        radioGroup = (RadioGroup)findViewById(R.id.my_radio_group);
